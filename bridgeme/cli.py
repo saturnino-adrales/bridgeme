@@ -187,11 +187,11 @@ def start_shell_server(terminal: TerminalHandler, port: int):
     server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 
     try:
-        server_socket.bind(("localhost", port))
+        server_socket.bind(("0.0.0.0", port))
         server_socket.listen(1)
         server_socket.settimeout(1.0)  # Allow interruption
 
-        print_info(f"Shell server listening on localhost:{port}")
+        print_info(f"Shell server listening on 0.0.0.0:{port}")
 
         while True:
             try:
