@@ -244,7 +244,7 @@ def start_client_connection(hostname: str, port: int):
 
             break
 
-        except ConnectionRefused:
+        except ConnectionRefusedError:
             print_warning(f"Connection refused. Retrying in {retry_delay} seconds...")
             if attempt < max_retries - 1:
                 time.sleep(retry_delay)
